@@ -1,11 +1,19 @@
 {
   "name": "kysely-migration-cli",
-  "version": "0.0.1",
+  "version": "0.0.1-dev",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "repository": "git@github.com:acro5piano/kysely-migration-cli",
   "author": "Kay Gosho <ketsume0211@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist/*.js",
+    "dist/*.map",
+    "dist/*.ts",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
   "peerDependencies": {
     "kysely": "*"
   },
