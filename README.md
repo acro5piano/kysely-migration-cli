@@ -1,6 +1,6 @@
 # kysely-migration-cli
 
-Thin migration cli for Kysely
+Thin migration cli for [Kysely](https://github.com/koskimas/kysely)
 
 # Getting started
 
