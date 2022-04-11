@@ -34,8 +34,7 @@ run(db, migrator)
 
 Then run:
 
-```
-#
+```bash
 # Do whichever tool you want to use
 #
 # $ node -r esbuild-register scripts/migrate.ts -h
