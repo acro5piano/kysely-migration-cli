@@ -5,7 +5,7 @@ Thin migration cli for Kysely
 # Getting started
 
 ```
-yarn add kysely-migration-cli@0.0.2-dev
+$ yarn add kysely-migration-cli@0.0.2-dev
 ```
 
 # Usage
@@ -35,6 +35,14 @@ run(db, migrator)
 Then run:
 
 ```
+#
+# Do whichever tool you want to use
+#
+# $ node -r esbuild-register scripts/migrate.ts -h
+# $ node -r ts-node/register scripts/migrate.ts -h
+# $ node -r babel-node/register scripts/migrate.ts -h
+# $ yarn tsc && node scripts/migrate.js -h
+
 $ node -r esbuild-register scripts/migrate.ts -h
 Usage: migrate [options] [command]
 
