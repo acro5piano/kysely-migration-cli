@@ -40,6 +40,7 @@ Then run:
 # $ node -r esbuild-register scripts/migrate.ts -h
 # $ node -r ts-node/register scripts/migrate.ts -h
 # $ node -r babel-node/register scripts/migrate.ts -h
+# $ ts-node scripts/migrate.ts -h
 # $ yarn tsc && node scripts/migrate.js -h
 
 $ node -r esbuild-register scripts/migrate.ts -h
