@@ -1,6 +1,6 @@
 {
   "name": "kysely-migration-cli",
-  "version": "0.0.2-dev",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "git@github.com:acro5piano/kysely-migration-cli",
@@ -15,16 +15,15 @@
     "README.md"
   ],
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "build": "tsc",
+    "r": "tsc && node dist/index.js"
   },
-  "peerDependencies": {
-    "kysely": "*"
+  "dependencies": {
+    "commander": "^9.1.0"
   },
   "devDependencies": {
     "kysely": "^0.17.3",
     "typescript": "^4.6.3"
-  },
-  "dependencies": {
-    "commander": "^9.1.0"
   }
 }

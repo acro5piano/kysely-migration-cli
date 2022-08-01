@@ -16,7 +16,7 @@ Create migration script:
 // scripts/migrate.ts
 
 import { run } from 'kysely-migration-cli'
-import { Kysely, Migrator, PostgresDialect } from 'kysely'
+import { Kysely, Migrator, PostgresDialect, FileMigrationProvider } from 'kysely'
 
 const db = new Kysely<any>({
   dialect: new PostgresDialect({
@@ -44,17 +44,18 @@ Then run:
 # $ yarn tsc && node scripts/migrate.js -h
 
 $ node -r esbuild-register scripts/migrate.ts -h
+
 Usage: migrate [options] [command]
 
 Options:
   -h, --help           display help for command
 
 Commands:
-  up
-  latest
-  down
-  redo
-  create <input-file>
+  up                   Run a pending migration if any
+  down                 Revert the latest migration with a down file
+  redo                 Down and Up
+  latest               Run all pending migrations
+  create <input-file>  Create a new migration with the given description, and the current
+                       time as the version
   help [command]       display help for command
-
 ```
