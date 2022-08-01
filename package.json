@@ -14,8 +14,13 @@
     "LICENSE",
     "README.md"
   ],
+  "bin": {
+    "kysely-migration-cli": "./bin/kysely-migration-cli.js"
+  },
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "build": "tsc",
+    "r": "tsc && node dist/index.js"
   },
   "peerDependencies": {
     "kysely": "*"

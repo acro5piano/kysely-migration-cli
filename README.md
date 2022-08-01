@@ -56,5 +56,4 @@ Commands:
   redo
   create <input-file>
   help [command]       display help for command
-
 ```
