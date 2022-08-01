@@ -5,7 +5,13 @@ Thin migration cli for [Kysely](https://github.com/koskimas/kysely)
 # Getting started
 
 ```
-$ yarn add kysely-migration-cli@0.0.2-dev
+npm install --save kysely-migration-cli
+```
+
+Or if you use Yarn:
+
+```
+yarn add kysely-migration-cli
 ```
 
 # Usage
