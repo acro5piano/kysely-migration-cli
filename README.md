@@ -10,6 +10,12 @@ $ yarn add kysely-migration-cli@0.0.2-dev
 
 # Usage
 
+### As a NPM command
+
+```
+
+```
+
 Create migration script:
 
 ```typescript
