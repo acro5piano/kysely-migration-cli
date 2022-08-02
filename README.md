@@ -1,6 +1,6 @@
 # kysely-migration-cli
 
-Thin migration cli for [Kysely](https://github.com/koskimas/kysely)
+Thin migration cli **library** for [Kysely](https://github.com/koskimas/kysely)
 
 # Getting started
 
@@ -16,13 +16,15 @@ yarn add kysely-migration-cli
 
 # Usage
 
-Create migration script:
+`kysely-migration-cli` is just a **library** which help you to write a migration script, and not intended to provide a command to migrate.
+
+Create a migration script like this:
 
 ```typescript
 // scripts/migrate.ts
 
-import { run } from 'kysely-migration-cli'
 import { Kysely, Migrator, PostgresDialect, FileMigrationProvider } from 'kysely'
+import { run } from 'kysely-migration-cli'
 
 const db = new Kysely<any>({
   dialect: new PostgresDialect({
@@ -50,7 +52,11 @@ Then run:
 # $ yarn tsc && node scripts/migrate.js -h
 
 $ node -r esbuild-register scripts/migrate.ts -h
+```
 
+Output:
+
+```
 Usage: migrate [options] [command]
 
 Options:
