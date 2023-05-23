@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 import { program } from 'commander'
-import { Kysely, MigrationResultSet, Migrator } from 'kysely'
+import {Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS} from 'kysely'
 
 function showResults({ error, results }: MigrationResultSet) {
   if (error) {
@@ -52,6 +52,23 @@ export function run(
     .action(async () => {
       console.log('Running migrations')
       const results = await migrator.migrateToLatest()
+      showResults(results)
+    })
+
+  program
+    .command('down-to')
+    .argument('<migration-name>')
+    .description('Migrates down to the specified migration name. Specify "NO_MIGRATIONS" to migrate all the way down.')
+    .action(async (name) => {
+      let results
+
+      if (name === 'NO_MIGRATIONS') {
+        console.log(`Migrating all the way down`)
+        results = await migrator.migrateTo(NO_MIGRATIONS)
+      } else {
+        console.log(`Migrating down to ${name}`)
+        results = await migrator.migrateTo(name)
+      }
       showResults(results)
     })
 
