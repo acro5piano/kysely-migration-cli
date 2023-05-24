@@ -60,7 +60,7 @@ export function run(
     .argument('<migration-name>')
     .description('Migrates down to the specified migration name. Specify "NO_MIGRATIONS" to migrate all the way down.')
     .action(async (name) => {
-      let results
+      let results: MigrationResultSet
 
       if (name === 'NO_MIGRATIONS') {
         console.log(`Migrating all the way down`)
