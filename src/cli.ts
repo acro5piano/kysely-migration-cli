@@ -6,6 +6,10 @@ import {
   PostgresDialect,
 } from 'kysely'
 import path from 'path'
+import { promises as fs } from 'fs';
+import {
+  Pool
+} from 'pg';
 
 /**
  * Load Dotenv if the module exists.
@@ -29,15 +33,19 @@ Please specify DATABASE_URL to run this CLi. Try the following:
 
 const db = new Kysely({
   dialect: new PostgresDialect({
-    connectionString: DATABASE_URL,
+    pool: new Pool({
+      connectionString: DATABASE_URL,
+    }),
   }),
 })
 
 const migrator = new Migrator({
   db,
-  provider: new FileMigrationProvider(
-    path.resolve(process.cwd(), './migrations'),
-  ),
+  provider: new FileMigrationProvider({
+    path,
+    fs,
+    migrationFolder: path.resolve(process.cwd(), './migrations'),
+  }),
 })
 
 run(db, migrator)
