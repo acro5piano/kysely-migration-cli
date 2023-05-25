@@ -1,15 +1,8 @@
 import { run } from '.'
-import {
-  FileMigrationProvider,
-  Kysely,
-  Migrator,
-  PostgresDialect,
-} from 'kysely'
+import { FileMigrationProvider, Kysely, Migrator, PostgresDialect } from 'kysely'
 import path from 'path'
-import { promises as fs } from 'fs';
-import {
-  Pool
-} from 'pg';
+import { promises as fs } from 'fs'
+import { Pool } from 'pg'
 
 /**
  * Load Dotenv if the module exists.
