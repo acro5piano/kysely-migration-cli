@@ -6,6 +6,9 @@
   "repository": "git@github.com:acro5piano/kysely-migration-cli",
   "author": "Kay Gosho <ketsume0211@gmail.com>",
   "license": "MIT",
+  "bin": {
+    "kysely-migration-cli": "./bin/kysely-migration-cli.js"
+  },
   "files": [
     "dist/*.js",
     "dist/*.map",
