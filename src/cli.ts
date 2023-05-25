@@ -41,4 +41,6 @@ const migrator = new Migrator({
   }),
 })
 
-run(db, migrator)
+export function main() {
+  run(db, migrator)
+}
