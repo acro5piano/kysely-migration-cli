@@ -15,7 +15,7 @@ tryRegister('ts-node/register/transpile-only')
 tryRegister('@swc-node/register')
 
 if (!registered) {
-  console.log('Warning: all of supported typescript transpile registration failed')
+  console.log('Warning: all of supported typescript transpiler registration failed')
 }
 
 require('../dist/cli').main()

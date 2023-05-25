@@ -76,7 +76,7 @@ Commands:
 
 Important NOTEs:
 
-- This is an experimental feature and the behaviour might chagne in the future.
+- This is an experimental feature and the behaviour might change in the future.
 - Currently it works with Postgres only.
 
 You can run `kysely-migration-cli` without a script file.
