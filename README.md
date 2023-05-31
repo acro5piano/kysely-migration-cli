@@ -78,12 +78,15 @@ Commands:
 
 The `create` command generates a migration boilorplate with the current timestamp. If you run `node -r ts-node/register scripts/migrate.ts create initial`, then it creates file like `migrations/20220222T044655-initial.ts` which contains the following code.
 
+<!-- prettier-ignore -->
 ```ts
 import { Kysely } from 'kysely'
 
-export async function up(db: Kysely<any>): Promise<void> {}
+export async function up(db: Kysely<any>): Promise<void> {
+}
 
-export async function down(db: Kysely<any>): Promise<void> {}
+export async function down(db: Kysely<any>): Promise<void> {
+}
 ```
 
 If you want to change the path contains migration files, please modify the CLI code like this:
@@ -112,7 +115,7 @@ npm run kysely-migration-cli
 
 If you place `.env` file which contains `DATABASE_URL=postgres://...`, the CLI automatically loads it before execution. To do so, you need to install `dotenv` module.
 
-To compile typescript, `kysely-migration-cli` tries to register a transpiler using Node's hook api. Currently it supports the following transpiers:
+To compile typescript, `kysely-migration-cli` tries to register a transpiler using the Node's hook api. Currently it supports the following transpilers:
 
 - `esbuild-register`
 - `ts-node/register/transpile-only`
