@@ -57,19 +57,21 @@ $ node -r esbuild-register scripts/migrate.ts -h
 Output:
 
 ```
-Usage: migrate [options] [command]
+Usage: kysely-migration-cli [options] [command]
 
 Options:
-  -h, --help           display help for command
+  -h, --help                display help for command
 
 Commands:
-  up                   Run a pending migration if any
-  down                 Revert the latest migration with a down file
-  redo                 Down and Up
-  latest               Run all pending migrations
-  create <input-file>  Create a new migration with the given description, and the current
-                       time as the version
-  help [command]       display help for command
+  up                        Run a pending migration if any
+  down                      Revert the latest migration with a down file
+  redo                      Down and Up
+  latest                    Run all pending migrations
+  down-to <migration-name>  Migrates down to the specified migration name. Specify
+                            "NO_MIGRATIONS" to migrate all the way down.
+  create <input-file>       Create a new migration with the given description, and
+                            the current time as the version
+  help [command]            display help for command
 ```
 
 # Migration creation
