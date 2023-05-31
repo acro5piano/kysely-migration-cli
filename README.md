@@ -72,6 +72,28 @@ Commands:
   help [command]       display help for command
 ```
 
+# Migration creation
+
+The `create` command generates a migration boilorplate with the current timestamp. If you run `node -r ts-node/register scripts/migrate.ts create initial`, then it creates file like `migrations/20220222T044655-initial.ts` which contains the following code.
+
+```ts
+import { Kysely } from 'kysely'
+
+export async function up(db: Kysely<any>): Promise<void> {}
+
+export async function down(db: Kysely<any>): Promise<void> {}
+```
+
+If you want to change the path contains migration files, please modify the CLI code like this:
+
+```typescript
+// scripts/migrate.ts
+
+// ...
+
+run(db, migrator, 'path-to-migration-files')
+```
+
 # Experimental: CLI without a script file
 
 Important NOTEs:
