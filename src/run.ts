@@ -6,7 +6,7 @@ import {Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS} from 'kysely'
 function showResults({ error, results }: MigrationResultSet) {
   if (results) {
     results.forEach((it) => console.log(`> ${it.status}: ${it.migrationName} (${it.direction})`))
-    if (!results.length) {
+    if (results.length === 0) {
       console.log('> No pending migrations to execute')
     }
   }
