@@ -4,11 +4,16 @@ import { program } from 'commander'
 import {Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS} from 'kysely'
 
 function showResults({ error, results }: MigrationResultSet) {
+  if (results) {
+    results.forEach((it) => console.log(`> ${it.status}: ${it.migrationName} (${it.direction})`))
+    if (results.length === 0) {
+      console.log('> No pending migrations to execute')
+    }
+  }
   if (error) {
     console.error(error)
     process.exit(1)
   }
-  results?.forEach((it) => console.log(`> ${it.migrationName}`))
 }
 
 export function run(
