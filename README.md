@@ -1,6 +1,6 @@
 # kysely-migration-cli
 
-Thin migration cli **library** for [Kysely](https://github.com/koskimas/kysely)
+A lightweight migration CLI **library** for [Kysely](https://github.com/koskimas/kysely)
 
 # Getting started
 
@@ -8,7 +8,7 @@ Thin migration cli **library** for [Kysely](https://github.com/koskimas/kysely)
 npm install --save kysely-migration-cli
 ```
 
-Or if you use Yarn:
+If you prefer Yarn:
 
 ```
 yarn add kysely-migration-cli
@@ -16,9 +16,9 @@ yarn add kysely-migration-cli
 
 # Usage
 
-`kysely-migration-cli` is just a **library** which help you to write a migration script, and not intended to provide a command to migrate.
+`kysely-migration-cli` is a **library** designed to assist you in creating your own migration script. It does not aim to provide an executable command.
 
-Create a migration script like this:
+Create a migration script as shown below:
 
 ```typescript
 // scripts/migrate.ts
@@ -43,7 +43,7 @@ run(db, migrator)
 Then run:
 
 ```bash
-# Do whichever tool you want to use
+# Choose your preferred tool
 #
 # $ node -r esbuild-register scripts/migrate.ts -h
 # $ node -r ts-node/register scripts/migrate.ts -h
@@ -76,7 +76,7 @@ Commands:
 
 # Migration creation
 
-The `create` command generates a migration boilorplate with the current timestamp. If you run `node -r ts-node/register scripts/migrate.ts create initial`, then it creates file like `migrations/20220222T044655-initial.ts` which contains the following code.
+The `create` command generates a migration boilorplate with the current timestamp. For example, running `node -r ts-node/register scripts/migrate.ts create initial` creates a file named `migrations/20220222T044655-initial.ts` with the following code:
 
 <!-- prettier-ignore -->
 ```ts
@@ -89,36 +89,36 @@ export async function down(db: Kysely<any>): Promise<void> {
 }
 ```
 
-If you want to change the path contains migration files, please modify the CLI code like this:
+If you want to change the path where migration files are stored, please modify the CLI code as follows:
 
 ```typescript
 // scripts/migrate.ts
 
 // ...
 
-run(db, migrator, 'path-to-migration-files')
+run(db, migrator, 'dir/to/migration/files')
 ```
 
 # Experimental: CLI without a script file
 
-Important NOTEs:
+Important Notes:
 
-- This is an experimental feature and the behaviour might change in the future.
-- Currently it works with Postgres only.
+- This is an experimental feature, and the behavior may change in the future.
+- Currently, it only works with Postgres.
 
 You can run `kysely-migration-cli` without a script file.
 
 ```
-export DATABASE_URL=postgres://postgres:postgres@127.0.0.1:27253/postgres
-npm run kysely-migration-cli
+env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:27253/postgres \
+  npm run kysely-migration-cli
 ```
 
-If you place `.env` file which contains `DATABASE_URL=postgres://...`, the CLI automatically loads it before execution. To do so, you need to install `dotenv` module.
+If you place an `.env` file containing `DATABASE_URL=postgres://...`, the CLI will automatically load it before execution. To enable this, you need to install the dotenv module.
 
-To compile typescript, `kysely-migration-cli` tries to register a transpiler using the Node's hook api. Currently it supports the following transpilers:
+To compile typescript, `kysely-migration-cli` attempts to register a transpiler using Node's hook api. It currently supports the following transpilers:
 
 - `esbuild-register`
 - `ts-node/register/transpile-only`
 - `@swc-node/register`
 
-If you need more, please create a pull request.
+If you require additional support, please submit a pull request.
