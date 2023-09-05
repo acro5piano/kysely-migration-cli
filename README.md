@@ -113,7 +113,7 @@ env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:27253/postgres \
   npm run kysely-migration-cli
 ```
 
-If you place an `.env` file containing `DATABASE_URL=postgres://...`, the CLI will automatically load it before execution. To enable this, you need to install the dotenv module.
+If you place an `.env` file containing `DATABASE_URL=postgres://...`, the CLI will automatically load it before execution. To enable this, you need to install the dotenv module (`npm install dotenv`) .
 
 To compile typescript, `kysely-migration-cli` attempts to register a transpiler using Node's hook api. It currently supports the following transpilers:
 
