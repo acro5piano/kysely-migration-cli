@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@commander-js/extra-typings@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@commander-js/extra-typings/-/extra-typings-11.0.0.tgz#eb922a59550454cad1f319d3d33e675e12e92fa0"
+  integrity sha512-06ol6Kn5gPjFY6v0vWOZ84nQwyqhZdaeZCHYH3vhwewjpOEjniF1KHZxh18887G3poWiJ8qyq5pb6ANuiddfPQ==
+
 "@types/node@*", "@types/node@^20.2.3":
   version "20.2.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.3.tgz#b31eb300610c3835ac008d690de6f87e28f9b878"
