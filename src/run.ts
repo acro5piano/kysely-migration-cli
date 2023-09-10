@@ -1,7 +1,7 @@
 import fs from 'fs'
 
-import { program } from 'commander'
-import {Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS} from 'kysely'
+import { program } from '@commander-js/extra-typings'
+import { Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS } from 'kysely'
 
 function showResults({ error, results }: MigrationResultSet) {
   if (results) {
@@ -16,11 +16,7 @@ function showResults({ error, results }: MigrationResultSet) {
   }
 }
 
-export function run(
-  db: Kysely<any>,
-  migrator: Migrator,
-  path: string = './migrations',
-) {
+export function run(db: Kysely<any>, migrator: Migrator, path: string = './migrations') {
   program
     .command('up')
     .description('Run a pending migration if any')
@@ -63,7 +59,9 @@ export function run(
   program
     .command('down-to')
     .argument('<migration-name>')
-    .description('Migrates down to the specified migration name. Specify "NO_MIGRATIONS" to migrate all the way down.')
+    .description(
+      'Migrates down to the specified migration name. Specify "NO_MIGRATIONS" to migrate all the way down.',
+    )
     .action(async (name) => {
       let results: MigrationResultSet
 
@@ -84,10 +82,7 @@ export function run(
       'Create a new migration with the given description, and the current time as the version',
     )
     .action(async (name) => {
-      const dateStr = new Date()
-        .toISOString()
-        .replace(/[-:]/g, '')
-        .split('.')[0]
+      const dateStr = new Date().toISOString().replace(/[-:]/g, '').split('.')[0]
       const fileName = `${path}/${dateStr}-${name}.ts`
       const mkdir = () => fs.mkdirSync(path)
       try {
