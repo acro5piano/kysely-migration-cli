@@ -2,7 +2,7 @@
 
 A lightweight migration CLI **library** for [Kysely](https://github.com/koskimas/kysely)
 
-# Getting started
+# Installation
 
 ```
 npm install --save kysely-migration-cli
@@ -43,13 +43,14 @@ run(db, migrator)
 Then run:
 
 ```bash
-# Choose your preferred tool
+# Choose your preferred tool. Here are some examples:
 #
-# $ node -r esbuild-register scripts/migrate.ts -h
-# $ node -r ts-node/register scripts/migrate.ts -h
-# $ node -r babel-node/register scripts/migrate.ts -h
-# $ ts-node scripts/migrate.ts -h
-# $ yarn tsc && node scripts/migrate.js -h
+#   $ node -r esbuild-register scripts/migrate.ts -h
+#   $ node -r ts-node/register scripts/migrate.ts -h
+#   $ node -r babel-node/register scripts/migrate.ts -h
+#   $ ts-node-transpile-only scripts/migrate.ts -h
+#   $ npm run tsc && node scripts/migrate.js -h
+#   $ bun run scripts/migrate.ts -h
 
 $ node -r esbuild-register scripts/migrate.ts -h
 ```
