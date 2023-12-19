@@ -24,7 +24,8 @@ Create a migration script as shown below:
 // scripts/migrate.ts
 
 import * as path from 'path'
-import { promises as fs } from 'fs';
+import { promises as fs } from 'fs'
+import pg from 'pg'
 import { Kysely, Migrator, PostgresDialect, FileMigrationProvider } from 'kysely'
 import { run } from 'kysely-migration-cli'
 
@@ -32,7 +33,9 @@ const migrationFolder = new URL('./migrations', import.meta.url).pathname
 
 const db = new Kysely<any>({
   dialect: new PostgresDialect({
-    connectionString: process.env.DATABASE_URL,
+    pool: new pg.Pool({
+      connectionString: process.env.DATABASE_URL,
+    }),
   }),
 })
 
