@@ -23,8 +23,12 @@ Create a migration script as shown below:
 ```typescript
 // scripts/migrate.ts
 
+import * as path from 'path'
+import { promises as fs } from 'fs';
 import { Kysely, Migrator, PostgresDialect, FileMigrationProvider } from 'kysely'
 import { run } from 'kysely-migration-cli'
+
+const migrationFolder = new URL('./migrations', import.meta.url).pathname
 
 const db = new Kysely<any>({
   dialect: new PostgresDialect({
@@ -34,10 +38,14 @@ const db = new Kysely<any>({
 
 const migrator = new Migrator({
   db,
-  provider: new FileMigrationProvider('./migrations'),
+  provider: new FileMigrationProvider({
+    fs,
+    path,
+    migrationFolder,
+  }),
 })
 
-run(db, migrator)
+run(db, migrator, migrationFolder)
 ```
 
 Then run:
