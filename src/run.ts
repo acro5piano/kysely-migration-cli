@@ -78,28 +78,36 @@ export function run(db: Kysely<any>, migrator: Migrator, path: string = './migra
   program
     .command('create')
     .argument('<input-file>')
+    .option('--template <template>')
     .description(
       'Create a new migration with the given description, and the current time as the version',
     )
-    .action(async (name) => {
+    .action(async (name, options) => {
       const dateStr = new Date().toISOString().replace(/[-:]/g, '').split('.')[0]
       const fileName = `${path}/${dateStr}-${name}.ts`
       const mkdir = () => fs.mkdirSync(path)
+
+      let migrationTemplate = DEFAULT_TEMPLATE
+
       try {
+        if (options.template) {
+          migrationTemplate = fs.readFileSync(options.template, 'utf8')
+        }
+
         if (!fs.lstatSync(path).isDirectory()) {
           mkdir()
         }
       } catch {
         fs.mkdirSync(path)
       }
-      fs.writeFileSync(fileName, TEMPLATE, 'utf8')
+      fs.writeFileSync(fileName, migrationTemplate, 'utf8')
       console.log('Created Migration:', fileName)
     })
 
   program.parseAsync().then(() => db.destroy())
 }
 
-const TEMPLATE = `import { type Kysely } from 'kysely'
+const DEFAULT_TEMPLATE = `import { type Kysely } from 'kysely'
 
 export async function up(db: Kysely<any>): Promise<void> {
 }
