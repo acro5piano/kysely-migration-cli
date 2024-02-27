@@ -4,13 +4,16 @@ A lightweight migration CLI **library** for [Kysely](https://github.com/koskimas
 
 # Installation
 
-```
+Install using the dependency manager of your choice
+
+```typescript
+// NPM
 npm install --save kysely-migration-cli
-```
 
-If you prefer Yarn:
+// PNPM
+pnpm add kysely-migration-cli
 
-```
+// YARN
 yarn add kysely-migration-cli
 ```
 
