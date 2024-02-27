@@ -96,7 +96,7 @@ The `create` command generates a migration boilorplate with the current timestam
 
 <!-- prettier-ignore -->
 ```ts
-import { Kysely } from 'kysely'
+import { type Kysely } from 'kysely'
 
 export async function up(db: Kysely<any>): Promise<void> {
 }

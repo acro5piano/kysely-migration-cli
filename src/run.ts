@@ -99,7 +99,7 @@ export function run(db: Kysely<any>, migrator: Migrator, path: string = './migra
   program.parseAsync().then(() => db.destroy())
 }
 
-const TEMPLATE = `import { Kysely } from 'kysely'
+const TEMPLATE = `import { type Kysely } from 'kysely'
 
 export async function up(db: Kysely<any>): Promise<void> {
 }
