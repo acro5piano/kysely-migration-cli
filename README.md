@@ -143,3 +143,9 @@ To compile typescript, `kysely-migration-cli` attempts to register a transpiler 
 - `@swc-node/register`
 
 If you require additional support, please submit a pull request.
+
+# License
+
+Copyright © 2022 [Kay Gosho](https://github.com/acro5piano) (@acro5piano).
+
+This project is licensed under the MIT License - see the LICENSE file for details.
