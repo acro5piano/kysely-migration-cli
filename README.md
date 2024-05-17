@@ -144,6 +144,12 @@ To compile typescript, `kysely-migration-cli` attempts to register a transpiler 
 
 If you require additional support, please submit a pull request.
 
+# Related Packages
+
+Kysely has now the official CLI called `kysely-ctl`. It's actively maintianed and covers broader features, while `kysely-migration-cli` has less dependencies.
+
+https://github.com/kysely-org/kysely-ctl
+
 # License
 
 Copyright © 2022 [Kay Gosho](https://github.com/acro5piano) (@acro5piano).
