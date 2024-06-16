@@ -38,7 +38,7 @@ const migrationFolder = new URL('../migrations', import.meta.url).pathname
 // For CJS environment
 // const migrationFolder = path.join(__dirname, '../migrations')
 
-const db = new Kysely({
+const db = new Kysely<YourDbType>({
   dialect: new PostgresDialect({
     pool: new pg.Pool({
       connectionString: process.env.DATABASE_URL,
