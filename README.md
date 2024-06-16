@@ -33,12 +33,12 @@ import { Kysely, Migrator, PostgresDialect, FileMigrationProvider } from 'kysely
 import { run } from 'kysely-migration-cli'
 
 // For ESM environment
-const migrationFolder = new URL('./migrations', import.meta.url).pathname
+const migrationFolder = new URL('../migrations', import.meta.url).pathname
 
 // For CJS environment
-// const migrationFolder = path.join(__dirname, './migrations')
+// const migrationFolder = path.join(__dirname, '../migrations')
 
-const db = new Kysely<any>({
+const db = new Kysely({
   dialect: new PostgresDialect({
     pool: new pg.Pool({
       connectionString: process.env.DATABASE_URL,
@@ -57,6 +57,8 @@ const migrator = new Migrator({
 
 run(db, migrator, migrationFolder)
 ```
+
+Note: The above script assumes your migration folder is located at the same directory of chdir and named `./migrations`
 
 Then run:
 
