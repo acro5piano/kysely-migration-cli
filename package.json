@@ -18,6 +18,7 @@
     "README.md"
   ],
   "scripts": {
+    "test": "node -r esbuild-register --test 'tests/*.test.ts'",
     "prepublish": "tsc",
     "build": "tsc",
     "r": "tsc && node dist/index.js"
@@ -29,6 +30,9 @@
   "devDependencies": {
     "@types/node": "^20.14.8",
     "@types/pg": "^8.11.6",
+    "esbuild": "^0.21.5",
+    "esbuild-register": "^3.5.0",
+    "execa": "^9.3.0",
     "kysely": "^0.24.2",
     "pg": "^8.12.0",
     "typescript": "^5.5.2"

@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 import { program } from '@commander-js/extra-typings'
-import { Kysely, MigrationResultSet, Migrator, NO_MIGRATIONS } from 'kysely'
+import { MigrationResultSet, Migrator, NO_MIGRATIONS } from 'kysely'
 
 function showResults({ error, results }: MigrationResultSet) {
   if (results) {
@@ -16,7 +16,7 @@ function showResults({ error, results }: MigrationResultSet) {
   }
 }
 
-export function run(db: Kysely<any>, migrator: Migrator, path: string = './migrations') {
+export function run(migrator: Migrator, path: string = './migrations') {
   program
     .command('up')
     .description('Run a pending migration if any')
@@ -104,7 +104,7 @@ export function run(db: Kysely<any>, migrator: Migrator, path: string = './migra
       console.log('Created Migration:', fileName)
     })
 
-  program.parseAsync().then(() => db.destroy())
+  return program.parseAsync()
 }
 
 const DEFAULT_TEMPLATE = `import { type Kysely } from 'kysely'

@@ -55,7 +55,7 @@ const migrator = new Migrator({
   }),
 })
 
-run(db, migrator, migrationFolder)
+run(migrator, migrationFolder).then(db.destroy)
 ```
 
 Note: The above script assumes your migration folder is located at the same directory of chdir and named `./migrations`
@@ -110,7 +110,7 @@ export async function down(db: Kysely<any>): Promise<void> {
 }
 ```
 
-If you want to modify the default template, you can pass an option `--template=yourtemplate.txt` pointing to a file containing the custom template
+If you want to modify the default template, you can pass an option `--template=yourtemplate.txt` pointing to a file containing the custom template.
 
 If you want to change the path where migration files are stored, please modify the CLI code as follows:
 
@@ -119,7 +119,7 @@ If you want to change the path where migration files are stored, please modify t
 
 // ...
 
-run(db, migrator, 'dir/to/migration/files')
+run(migrator, 'dir/to/migration/files').then(db.destroy)
 ```
 
 # Experimental: CLI without a script file

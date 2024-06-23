@@ -48,5 +48,5 @@ const migrator = new Migrator({
 })
 
 export function main() {
-  run(db, migrator)
+  run(migrator).finally(db.destroy)
 }
