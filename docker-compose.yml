@@ -1,0 +1,7 @@
+services:
+  db:
+    image: postgres:16.3-alpine
+    ports:
+      - '45432:5432'
+    environment:
+      POSTGRES_PASSWORD: postgres
