@@ -25,9 +25,6 @@ devDependencies:
   pg:
     specifier: ^8.12.0
     version: 8.12.0
-  pg-cursor:
-    specifier: ^2.11.0
-    version: 2.11.0(pg@8.12.0)
   typescript:
     specifier: ^5.5.2
     version: 5.5.2
@@ -78,14 +75,6 @@ packages:
 
   /pg-connection-string@2.6.4:
     resolution: {integrity: sha512-v+Z7W/0EO707aNMaAEfiGnGL9sxxumwLl2fJvCQtMn9Fxsg+lPpPkdcyBSv/KFgpGdYkMfn+EI1Or2EHjpgLCA==}
-    dev: true
-
-  /pg-cursor@2.11.0(pg@8.12.0):
-    resolution: {integrity: sha512-TLCOCtu+rqMarzjUi+/Ffc2DV5ZqO/27y5GqnK9Z3w51rWXMwC8FcO96Uf9/ORo5o+qRXEVJxM9Ts3K2K31MLg==}
-    peerDependencies:
-      pg: ^8
-    dependencies:
-      pg: 8.12.0
     dev: true
 
   /pg-int8@1.0.1:
