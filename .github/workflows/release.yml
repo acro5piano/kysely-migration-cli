@@ -21,6 +21,7 @@ jobs:
           test -n "$NPM_TOKEN"
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
           pnpm install
-          npm publish
+          pnpm build
+          pnpm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
