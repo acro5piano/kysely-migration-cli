@@ -10,6 +10,7 @@
     "kysely-migration-cli": "./bin/kysely-migration-cli.js"
   },
   "files": [
+    "bin/*.js",
     "dist/*.js",
     "dist/*.map",
     "dist/*.ts",
