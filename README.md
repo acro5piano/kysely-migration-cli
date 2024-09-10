@@ -132,19 +132,21 @@ Important Notes:
 You can run `kysely-migration-cli` without a script file.
 
 ```
-env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:27253/postgres \
+env DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres \
   npm run kysely-migration-cli
 ```
 
 If you place an `.env` file containing `DATABASE_URL=postgres://...`, the CLI will automatically load it before execution. To enable this, you need to install the dotenv module (`npm install dotenv`) .
 
-To compile typescript, `kysely-migration-cli` attempts to register a transpiler using Node's hook api. It currently supports the following transpilers:
+To transpile TypeScript, `kysely-migration-cli` attempts to register a transpiler using Node's hook api. It currently supports the following transpilers:
 
 - `esbuild-register`
 - `ts-node/register/transpile-only`
 - `@swc-node/register`
 
-If you require additional support, please submit a pull request.
+> Of course, they are not required for platforms which supports TypeScript natively, such as `Deno` and `Bun`.
+
+If you require additional registration supports, please submit a pull request.
 
 # Related Packages
 
