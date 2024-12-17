@@ -148,11 +148,13 @@ To transpile TypeScript, `kysely-migration-cli` attempts to register a transpile
 
 If you require additional registration supports, please submit a pull request.
 
-# Related Packages
+# Difference from kysely-ctl
 
 Kysely has now the official CLI called `kysely-ctl`. It's actively maintianed and covers broader features, while `kysely-migration-cli` has less dependencies.
 
 https://github.com/kysely-org/kysely-ctl
+
+For more details, please take a look at: https://github.com/acro5piano/kysely-migration-cli/issues/28
 
 # License
 
