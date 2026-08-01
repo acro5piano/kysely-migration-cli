@@ -16,7 +16,7 @@ function showResults({ error, results }: MigrationResultSet) {
   }
 }
 
-export function run(db: Kysely<any>, migrator: Migrator, path: string = './migrations') {
+export async function run(db: Kysely<any>, migrator: Migrator, path: string = './migrations') {
   program
     .command('up')
     .description('Run a pending migration if any')
@@ -104,7 +104,8 @@ export function run(db: Kysely<any>, migrator: Migrator, path: string = './migra
       console.log('Created Migration:', fileName)
     })
 
-  program.parseAsync().then(() => db.destroy())
+  await program.parseAsync()
+  db.destroy()
 }
 
 const DEFAULT_TEMPLATE = `import { type Kysely } from 'kysely'
